@@ -17,9 +17,9 @@ class Wholebody:
     def __init__(self):
         device = 'cuda:0'
         providers = ['CPUExecutionProvider'] if device == 'cpu' else ['CUDAExecutionProvider']
-        onnx_det = os.path.join(parent_dir, 'models\\yolox_l.onnx')
+        onnx_det = os.path.join(parent_dir, 'models', 'yolox_l.onnx')
         # print(f"onnx_det = {onnx_det}")
-        onnx_pose = os.path.join(parent_dir, 'models\\dw-ll_ucoco_384.onnx')
+        onnx_pose = os.path.join(parent_dir, 'models', 'dw-ll_ucoco_384.onnx')
         # print(f"onnx_pose = {onnx_pose}")
 
         self.session_det = ort.InferenceSession(path_or_bytes=onnx_det, providers=providers)
